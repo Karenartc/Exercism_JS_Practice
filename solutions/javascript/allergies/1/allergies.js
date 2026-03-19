@@ -1,0 +1,30 @@
+//
+// This is only a SKELETON file for the 'Allergies' exercise. It's been provided as a
+// convenience to get you started writing code faster.
+//
+
+export class Allergies {
+  constructor(score) {
+    this.score = score;
+    this.allergens = {
+      eggs: 1,
+      peanuts: 2,
+      shellfish: 4,
+      strawberries: 8,
+      tomatoes: 16,
+      chocolate: 32,
+      pollen: 64,
+      cats: 128,
+    };
+  }
+
+  list() {
+    return Object.keys(this.allergens).filter(
+      allergen => (this.score & this.allergens[allergen]) !== 0
+    );
+  }
+
+  allergicTo(allergen) {
+    return (this.score & this.allergens[allergen]) !== 0;
+  }
+}
